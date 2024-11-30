@@ -1,7 +1,36 @@
+import requests
 from colorama import Fore, Style
 
 class Converter:
-    # Temperature Conversions
+    # API URL to fetch latest currency rates (base currency: EUR)
+    API_URL = "https://v6.exchangerate-api.com/v6/9cfb5e049b5a23f86f3e979a/latest/EUR"
+
+    @staticmethod
+    def fetch_exchange_rates():
+        """Fetch the latest exchange rates from the API."""
+        try:
+            response = requests.get(Converter.API_URL)
+            response.raise_for_status()  # Raise an error for HTTP issues
+            data = response.json()
+            if data["result"] == "success":
+                return data["conversion_rates"]
+            else:
+                print("Failed to fetch exchange rates:", data.get("error-type", "Unknown error"))
+                return None
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching exchange rates: {e}")
+            return None
+
+    @staticmethod
+    def convert_currency(amount, target_currency):
+        """Convert an amount in EUR to the target currency."""
+        rates = Converter.fetch_exchange_rates()
+        if rates and target_currency in rates:
+            return amount * rates[target_currency]
+        else:
+            print(f"Conversion rate for {target_currency} not found.")
+            return None
+
     @staticmethod
     def celsius_to_fahrenheit(celsius):
         return (celsius * 9/5) + 32
@@ -26,48 +55,37 @@ class Converter:
     def kelvin_to_fahrenheit(kelvin):
         return (kelvin - 273.15) * 9/5 + 32
 
-    # Currency Conversions
     @staticmethod
-    def eur_to_usd(eur):
-        return eur * 1.05  
-
-    @staticmethod
-    def eur_to_gbp(eur):
-        return eur * 0.88  
+    def eur_to_usd(amount):
+        return Converter.convert_currency(amount, "USD")
 
     @staticmethod
-    def eur_to_jpy(eur):
-        return eur * 131.12  
+    def eur_to_gbp(amount):
+        return Converter.convert_currency(amount, "GBP")
 
     @staticmethod
-    def eur_to_aud(eur):
-        return eur * 1.62  
+    def eur_to_inr(amount):
+        return Converter.convert_currency(amount, "INR")
 
     @staticmethod
-    def eur_to_cad(eur):
-        return eur * 1.45  
+    def validate_temperature_input(value):
+        """Validate that the temperature input is a valid numeric value."""
+        if not isinstance(value, (int, float)):
+            raise ValueError("The temperature value must be a numeric value.")
+        if value < -273.15:  # Absolute zero in Celsius
+            raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
+        return value
 
     @staticmethod
-    def eur_to_inr(eur):
-        return eur * 87.65  
+    def validate_currency_input(value):
+        """Validate that the currency input is a valid positive numeric value."""
+        if not isinstance(value, (int, float)):
+            raise ValueError("The amount must be a numeric value.")
+        if value <= 0:
+            raise ValueError("Amount must be a positive value.")
+        return value
 
-def validate_temperature_input(value):
-    """Validate that the temperature input is a valid numeric value."""
-    if not isinstance(value, (int, float)):
-        raise ValueError("The temperature value must be a numeric value.")
-    if value < -273.15:  # Absolute zero in celsius
-        raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
-    return value
-
-def validate_currency_input(value):
-    """Validate that the currency input is a valid positive numeric value."""
-    if not isinstance(value, (int, float)):
-        raise ValueError("The amount must be a numeric value.")
-    if value <= 0:
-        raise ValueError("Amount must be a positive value.")
-    return value
-
-#Menu
+# Menu Functions
 def temperature_menu():
     converter = Converter()
 
@@ -90,7 +108,7 @@ def temperature_menu():
 
         try:
             value = float(input("Enter the temperature value: "))
-            value = validate_temperature_input(value)  # Validate the input
+            value = converter.validate_temperature_input(value)  # Validate the input
 
             if temp_choice == "1":
                 result = converter.celsius_to_fahrenheit(value)
@@ -124,10 +142,7 @@ def currency_menu():
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
         print(Fore.GREEN + "1. EUR to USD" + Style.RESET_ALL)
         print(Fore.GREEN + "2. EUR to GBP" + Style.RESET_ALL)
-        print(Fore.GREEN + "3. EUR to JPY" + Style.RESET_ALL)
-        print(Fore.GREEN + "4. EUR to AUD" + Style.RESET_ALL)
-        print(Fore.GREEN + "5. EUR to CAD" + Style.RESET_ALL)
-        print(Fore.GREEN + "6. EUR to INR" + Style.RESET_ALL)
+        print(Fore.GREEN + "3. EUR to INR" + Style.RESET_ALL)
         print(Fore.RED + "7. Back to Main Menu 🚪" + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
@@ -137,26 +152,17 @@ def currency_menu():
 
         try:
             value = float(input("Enter the amount in EUR: "))
-            value = validate_currency_input(value)  # Validate the input
+            value = converter.validate_currency_input(value)  # Validate the input
 
             if currency_choice == "1":
                 result = converter.eur_to_usd(value)
-                print(f"{value} EUR is {result:.2f} USD")
+                print(f"{value} EUR is ${result:.2f} USD")
             elif currency_choice == "2":
                 result = converter.eur_to_gbp(value)
-                print(f"{value} EUR is {result:.2f} GBP")
+                print(f"{value} EUR is £{result:.2f} GBP")
             elif currency_choice == "3":
-                result = converter.eur_to_jpy(value)
-                print(f"{value} EUR is {result:.2f} JPY")
-            elif currency_choice == "4":
-                result = converter.eur_to_aud(value)
-                print(f"{value} EUR is {result:.2f} AUD")
-            elif currency_choice == "5":
-                result = converter.eur_to_cad(value)
-                print(f"{value} EUR is {result:.2f} CAD")
-            elif currency_choice == "6":
                 result = converter.eur_to_inr(value)
-                print(f"{value} EUR is {result:.2f} INR")
+                print(f"{value} EUR is ₹{result:.2f} INR")
             else:
                 print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
         except ValueError as e:
