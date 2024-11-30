@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a Python-based application that provides temperature and currency conversion functionalities via a user-friendly console menu.
+This is a Python-based application that provides temperature and currency conversion functionalities with a console menu.
 
 ---
 
@@ -36,5 +36,5 @@ This project implements **OWASP ASVS Requirement 5.1.4**:
 2. **Currency Inputs**:
    - Ensures the input is a **numeric value**.
    - Validates that the currency amount is **positive** and within a reasonable range.
-   - 
+     
 ---
