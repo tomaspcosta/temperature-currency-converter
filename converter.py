@@ -55,7 +55,7 @@ def validate_temperature_input(value):
     """Validate that the temperature input is a valid numeric value."""
     if not isinstance(value, (int, float)):
         raise ValueError("The temperature value must be a numeric value.")
-    if value < -273.15:  # Absolute zero in Celsius
+    if value < -273.15:  # Absolute zero in celsius
         raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
     return value
 
