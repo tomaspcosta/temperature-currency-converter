@@ -36,5 +36,5 @@ This project implements **OWASP ASVS Requirement 5.1.4**:
 2. **Currency Inputs**:
    - Ensures the input is a **numeric value**.
    - Validates that the currency amount is **positive** and within a reasonable range.
-   - 
+     
 ---
