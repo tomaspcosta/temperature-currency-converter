@@ -1,5 +1,5 @@
 import pytest
-from converter import celsius_to_fahrenheit, celsius_to_kelvin, fahrenheit_to_celsius, fahrenheit_to_kelvin, kelvin_to_celsius, kelvin_to_fahrenheit, eur_to_usd, eur_to_gbp, eur_to_jpy, eur_to_aud, eur_to_cad, eur_to_inr
+from converter import celsius_to_fahrenheit, celsius_to_kelvin, fahrenheit_to_celsius, fahrenheit_to_kelvin, kelvin_to_celsius, kelvin_to_fahrenheit, eur_to_usd, eur_to_gbp, eur_to_jpy, eur_to_aud, eur_to_cad, eur_to_inr, validate_temperature_input, validate_currency_input
 
 # Test Celsius to Fahrenheit
 @pytest.mark.celsius_to_fahrenheit
@@ -68,3 +68,9 @@ def test_eur_to_cad():
 def test_eur_to_inr():
     assert eur_to_inr(100) == 8765.0  # Passes (100 EUR = 8765 INR)
     assert eur_to_inr(50) == 4300.0   # Fail (Expected 4382.5 INR)
+
+# Test for validating currency input
+@pytest.mark.currency_validation
+def test_validate_currency_input_valid():
+    assert validate_currency_input(100) == 100  # Valid positive amount
+    assert validate_currency_input(0) == 0  # Unvalid decimal amount
