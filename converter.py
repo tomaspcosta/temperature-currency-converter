@@ -1,5 +1,4 @@
 from colorama import Fore, Style
-import time
 
 class Converter:
     # Temperature Conversions
@@ -68,6 +67,7 @@ def validate_currency_input(value):
         raise ValueError("Amount must be a positive value.")
     return value
 
+#Menu
 def temperature_menu():
     converter = Converter()
 
