@@ -52,13 +52,6 @@ class Converter:
     def eur_to_inr(eur):
         return eur * 87.65  
 
-def print_with_animation(text):
-    """Print text with a typing animation."""
-    for char in text:
-        print(char, end="", flush=True)
-        time.sleep(0.02)
-    print()
-
 def validate_temperature_input(value):
     """Validate that the temperature input is a valid numeric value."""
     if not isinstance(value, (int, float)):
@@ -186,7 +179,7 @@ def main_menu():
         elif choice == "2":
             currency_menu()
         elif choice == "3":
-            print_with_animation("\nExiting the program. Goodbye!")
+            print("\nGoodbye!")
             break
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
