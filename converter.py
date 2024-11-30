@@ -141,22 +141,22 @@ def currency_menu():
 
             if currency_choice == "1":
                 result = converter.eur_to_usd(value)
-                print(f"{value} EUR is ${result:.2f} USD")
+                print(f"{value} EUR is {result:.2f} USD")
             elif currency_choice == "2":
                 result = converter.eur_to_gbp(value)
-                print(f"{value} EUR is £{result:.2f} GBP")
+                print(f"{value} EUR is {result:.2f} GBP")
             elif currency_choice == "3":
                 result = converter.eur_to_jpy(value)
-                print(f"{value} EUR is ¥{result:.2f} JPY")
+                print(f"{value} EUR is {result:.2f} JPY")
             elif currency_choice == "4":
                 result = converter.eur_to_aud(value)
-                print(f"{value} EUR is A${result:.2f} AUD")
+                print(f"{value} EUR is {result:.2f} AUD")
             elif currency_choice == "5":
                 result = converter.eur_to_cad(value)
-                print(f"{value} EUR is C${result:.2f} CAD")
+                print(f"{value} EUR is {result:.2f} CAD")
             elif currency_choice == "6":
                 result = converter.eur_to_inr(value)
-                print(f"{value} EUR is ₹{result:.2f} INR")
+                print(f"{value} EUR is {result:.2f} INR")
             else:
                 print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
         except ValueError as e:
