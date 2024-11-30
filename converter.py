@@ -1,4 +1,5 @@
 from colorama import Fore, Style
+import time
 
 class Converter:
     # Temperature Conversions
@@ -51,6 +52,29 @@ class Converter:
     def eur_to_inr(eur):
         return eur * 87.65  
 
+def print_with_animation(text):
+    """Print text with a typing animation."""
+    for char in text:
+        print(char, end="", flush=True)
+        time.sleep(0.02)
+    print()
+
+def validate_temperature_input(value):
+    """Validate that the temperature input is a valid numeric value."""
+    if not isinstance(value, (int, float)):
+        raise ValueError("The temperature value must be a numeric value.")
+    if value < -273.15:  # Absolute zero in Celsius
+        raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
+    return value
+
+def validate_currency_input(value):
+    """Validate that the currency input is a valid positive numeric value."""
+    if not isinstance(value, (int, float)):
+        raise ValueError("The amount must be a numeric value.")
+    if value <= 0:
+        raise ValueError("Amount must be a positive value.")
+    return value
+
 def temperature_menu():
     converter = Converter()
 
@@ -72,34 +96,31 @@ def temperature_menu():
             break
 
         try:
+            value = float(input("Enter the temperature value: "))
+            value = validate_temperature_input(value)  # Validate the input
+
             if temp_choice == "1":
-                value = float(input("Enter the temperature value in Celsius: "))
                 result = converter.celsius_to_fahrenheit(value)
                 print(f"{value} Celsius is {result:.2f} Fahrenheit.")
             elif temp_choice == "2":
-                value = float(input("Enter the temperature value in Celsius: "))
                 result = converter.celsius_to_kelvin(value)
                 print(f"{value} Celsius is {result:.2f} Kelvin.")
             elif temp_choice == "3":
-                value = float(input("Enter the temperature value in Fahrenheit: "))
                 result = converter.fahrenheit_to_celsius(value)
                 print(f"{value} Fahrenheit is {result:.2f} Celsius.")
             elif temp_choice == "4":
-                value = float(input("Enter the temperature value in Fahrenheit: "))
                 result = converter.fahrenheit_to_kelvin(value)
                 print(f"{value} Fahrenheit is {result:.2f} Kelvin.")
             elif temp_choice == "5":
-                value = float(input("Enter the temperature value in Kelvin: "))
                 result = converter.kelvin_to_celsius(value)
                 print(f"{value} Kelvin is {result:.2f} Celsius.")
             elif temp_choice == "6":
-                value = float(input("Enter the temperature value in Kelvin: "))
                 result = converter.kelvin_to_fahrenheit(value)
                 print(f"{value} Kelvin is {result:.2f} Fahrenheit.")
             else:
                 print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
-        except ValueError:
-            print(Fore.RED + "Please enter a valid numeric value." + Style.RESET_ALL)
+        except ValueError as e:
+            print(Fore.RED + str(e) + Style.RESET_ALL)
 
 def currency_menu():
     converter = Converter()
@@ -123,28 +144,30 @@ def currency_menu():
 
         try:
             value = float(input("Enter the amount in EUR: "))
+            value = validate_currency_input(value)  # Validate the input
+
             if currency_choice == "1":
                 result = converter.eur_to_usd(value)
-                print(f"{value} EUR is {result:.2f} USD")
+                print(f"{value} EUR is ${result:.2f} USD")
             elif currency_choice == "2":
                 result = converter.eur_to_gbp(value)
-                print(f"{value} EUR is {result:.2f} GBP")
+                print(f"{value} EUR is £{result:.2f} GBP")
             elif currency_choice == "3":
                 result = converter.eur_to_jpy(value)
-                print(f"{value} EUR is {result:.2f} JPY")
+                print(f"{value} EUR is ¥{result:.2f} JPY")
             elif currency_choice == "4":
                 result = converter.eur_to_aud(value)
-                print(f"{value} EUR is {result:.2f} AUD")
+                print(f"{value} EUR is A${result:.2f} AUD")
             elif currency_choice == "5":
                 result = converter.eur_to_cad(value)
-                print(f"{value} EUR is {result:.2f} CAD")
+                print(f"{value} EUR is C${result:.2f} CAD")
             elif currency_choice == "6":
                 result = converter.eur_to_inr(value)
-                print(f"{value} EUR is {result:.2f} INR")
+                print(f"{value} EUR is ₹{result:.2f} INR")
             else:
                 print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
-        except ValueError:
-            print(Fore.RED + "Please enter a valid numeric value." + Style.RESET_ALL)
+        except ValueError as e:
+            print(Fore.RED + str(e) + Style.RESET_ALL)
 
 def main_menu():
     while True:
@@ -156,14 +179,14 @@ def main_menu():
         print(Fore.RED + "3. Exit 🚪 " + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
-        choice = input("Choose an option (1-5): ").strip()
+        choice = input("Choose an option (1-3): ").strip()
 
         if choice == "1":
             temperature_menu()
         elif choice == "2":
             currency_menu()
         elif choice == "3":
-            print("Bye Bye!")
+            print_with_animation("\nExiting the program. Goodbye!")
             break
         else:
             print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
