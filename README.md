@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a Python-based application that provides temperature and currency conversion functionalities via a user-friendly console menu.
+This is a Python-based application that provides temperature and currency conversion functionalities with a console menu.
 
 ---
 
