@@ -10,13 +10,13 @@ def test_celsius_to_fahrenheit():
 # Test Celsius to Kelvin
 @pytest.mark.celsius_to_kelvin
 def test_celsius_to_kelvin():
-    assert Converter.celsius_to_kelvin(0) == 273.15  # Passes (0°C = 273.15K)
+    assert Converter.celsius_to_kelvin(0) == 273.15   # Passes (0°C = 273.15K)
     assert Converter.celsius_to_kelvin(25) == 298.15  # Passes (25°C = 298.15K)
 
 # Test Fahrenheit to Celsius
 @pytest.mark.fahrenheit_to_celsius
 def test_fahrenheit_to_celsius():
-    assert Converter.fahrenheit_to_celsius(32) == 0  # Passes (32°F = 0°C)
+    assert Converter.fahrenheit_to_celsius(32) == 0       # Passes (32°F = 0°C)
     assert Converter.fahrenheit_to_celsius(100) == 17.78  # Fail
 
 # Test Fahrenheit to Kelvin
@@ -28,7 +28,7 @@ def test_fahrenheit_to_kelvin():
 # Test Kelvin to Celsius
 @pytest.mark.kelvin_to_celsius
 def test_kelvin_to_celsius():
-    assert Converter.kelvin_to_celsius(273.15) == 0  # Passes (273.15K = 0°C)
+    assert Converter.kelvin_to_celsius(273.15) == 0   # Passes (273.15K = 0°C)
     assert Converter.kelvin_to_celsius(298.15) == 25  # Passes (298.15K = 25°C)
 
 # Test Kelvin to Fahrenheit
@@ -41,7 +41,7 @@ def test_kelvin_to_fahrenheit():
 @pytest.mark.eur_to_usd
 def test_eur_to_usd():
     assert Converter.eur_to_usd(100) == 105.0  # Passes (100 EUR = 105 USD)
-    assert Converter.eur_to_usd(50) == 52.5   # Passes (50 EUR = 52.5 USD)
+    assert Converter.eur_to_usd(50) == 52.5    # Passes (50 EUR = 52.5 USD)
 
 # Test EUR to GBP conversion
 @pytest.mark.eur_to_gbp
@@ -76,5 +76,5 @@ def test_eur_to_inr():
 # Test for validating currency input
 @pytest.mark.currency_validation
 def test_validate_currency_input_valid():
-    assert validate_currency_input(100) == -100  # unvalid negative amount
+    assert validate_currency_input(100) == -100     # unvalid negative amount
     assert validate_currency_input(10.50) == 10.50  # Valid decimal amount
