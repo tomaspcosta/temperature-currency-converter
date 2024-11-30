@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a Python-based application that provides temperature and currency conversion functionalities via a user-friendly console menu. It also incorporates **input validation** to meet **OWASP ASVS Requirement 1.1.4**, ensuring the application adheres to secure coding practices.
+This is a Python-based application that provides temperature and currency conversion functionalities via a user-friendly console menu. It incorporates **input validation** to meet **OWASP ASVS Requirement 5.1.1**, ensuring the application adheres to secure coding practices.
 
 ---
 
@@ -26,8 +26,8 @@ This is a Python-based application that provides temperature and currency conver
 ---
 
 ## **OWASP ASVS Requirement**
-This project implements **OWASP ASVS Requirement 1.1.4**:
-- **"Verify that all inputs are validated for type, length, format, and range."**
+This project implements **OWASP ASVS Requirement 5.1.1**:
+- **"Verify that the application validates all inputs from untrusted sources to ensure that they are valid, defined, within the required range, and free of harmful content."**
 
 ### **Input Validation**
 1. **Temperature Inputs**:
@@ -37,6 +37,8 @@ This project implements **OWASP ASVS Requirement 1.1.4**:
    - Ensures the input is a **numeric value**.
    - Validates that the currency amount is **positive**.
 
-These measures enhance security and ensure the app processes only valid inputs.
+### **Security Benefits**
+- Prevents invalid or unexpected inputs from causing errors or vulnerabilities.
+- Enhances the application's robustness and reliability.
 
 ---
