@@ -2,7 +2,7 @@ import requests
 from colorama import Fore, Style
 
 class Converter:
-    # API URL to fetch latest currency rates (base currency: EUR)
+    # API URL to fetch latest currency rates (base currency -> EUR)
     API_URL = "https://v6.exchangerate-api.com/v6/9cfb5e049b5a23f86f3e979a/latest/EUR"
 
     @staticmethod
@@ -10,12 +10,12 @@ class Converter:
         """Fetch the latest exchange rates from the API."""
         try:
             response = requests.get(Converter.API_URL)
-            response.raise_for_status()  # Raise an error for HTTP issues
+            response.raise_for_status()  # raise an error for http issues
             data = response.json()
             if data["result"] == "success":
                 return data["conversion_rates"]
             else:
-                print("Failed to fetch exchange rates:", data.get("error-type", "Unknown error"))
+                print("failed to fetch exchange rates:", data.get("error-type", "Unknown error"))
                 return None
         except requests.exceptions.RequestException as e:
             print(f"Error fetching exchange rates: {e}")
@@ -72,7 +72,7 @@ class Converter:
         """Validate that the temperature input is a valid numeric value."""
         if not isinstance(value, (int, float)):
             raise ValueError("The temperature value must be a numeric value.")
-        if value < -273.15:  # Absolute zero in Celsius
+        if value < -273.15:  # absolute zero in Celsius
             raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
         return value
 
