@@ -9,8 +9,6 @@ This is a python based console application that provides temperature and currenc
 
 ### **1. Temperature Conversions**
 
-| **Conversion**                |
-|-------------------------------|
 | Convert Celsius to Fahrenheit  |
 | Convert Celsius to Kelvin      |
 | Convert Fahrenheit to Celsius  |
@@ -20,8 +18,6 @@ This is a python based console application that provides temperature and currenc
 
 ### **2. Currency Conversions**
 
-| **Conversion**               |
-|-------------------------------|
 | Convert EUR to USD            |
 | Convert EUR to GBP            |
 | Convert EUR to JPY            |
