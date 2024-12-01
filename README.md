@@ -7,23 +7,24 @@ This is a python based console application that provides temperature and currenc
 
 ## **Features**
 
-### **1. Temperature Conversions**
+| Temperature Conversions           |
+|-----------------------------------|
+| Convert Celsius to Fahrenheit     |
+| Convert Celsius to Kelvin         |
+| Convert Fahrenheit to Celsius     |
+| Convert Fahrenheit to Kelvin      |
+| Convert Kelvin to Celsius         |
+| Convert Kelvin to Fahrenheit      |
 
-| Convert Celsius to Fahrenheit  |
-| Convert Celsius to Kelvin      |
-| Convert Fahrenheit to Celsius  |
-| Convert Fahrenheit to Kelvin   |
-| Convert Kelvin to Celsius      |
-| Convert Kelvin to Fahrenheit   |
 
-### **2. Currency Conversions**
-
-| Convert EUR to USD            |
-| Convert EUR to GBP            |
-| Convert EUR to JPY            |
-| Convert EUR to AUD            |
-| Convert EUR to CAD            |
-| Convert EUR to INR            |
+| Currency Conversions              |
+|-----------------------------------|
+| Convert EUR to USD                |
+| Convert EUR to GBP                |
+| Convert EUR to JPY                |
+| Convert EUR to AUD                |
+| Convert EUR to CAD                |
+| Convert EUR to INR                |
 
 ---
 
