@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a Python-based application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
+This is a python based console application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
 
 ---
 
