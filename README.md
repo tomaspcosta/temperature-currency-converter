@@ -9,25 +9,25 @@ This is a python based console application that provides temperature and currenc
 
 ### **1. Temperature Conversions**
 
-| **Conversion**            | **Description**               |
-|---------------------------|-------------------------------|
-| Celsius to Fahrenheit      | Convert Celsius to Fahrenheit  |
-| Celsius to Kelvin          | Convert Celsius to Kelvin      |
-| Fahrenheit to Celsius      | Convert Fahrenheit to Celsius  |
-| Fahrenheit to Kelvin       | Convert Fahrenheit to Kelvin   |
-| Kelvin to Celsius          | Convert Kelvin to Celsius      |
-| Kelvin to Fahrenheit       | Convert Kelvin to Fahrenheit   |
+| **Conversion**                |
+|-------------------------------|
+| Convert Celsius to Fahrenheit  |
+| Convert Celsius to Kelvin      |
+| Convert Fahrenheit to Celsius  |
+| Convert Fahrenheit to Kelvin   |
+| Convert Kelvin to Celsius      |
+| Convert Kelvin to Fahrenheit   |
 
 ### **2. Currency Conversions**
 
-| **Conversion**            | **Description**               |
-|---------------------------|-------------------------------|
-| EUR to USD                | Convert EUR to USD            |
-| EUR to GBP                | Convert EUR to GBP            |
-| EUR to JPY                | Convert EUR to JPY            |
-| EUR to AUD                | Convert EUR to AUD            |
-| EUR to CAD                | Convert EUR to CAD            |
-| EUR to INR                | Convert EUR to INR            |
+| **Conversion**               |
+|-------------------------------|
+| Convert EUR to USD            |
+| Convert EUR to GBP            |
+| Convert EUR to JPY            |
+| Convert EUR to AUD            |
+| Convert EUR to CAD            |
+| Convert EUR to INR            |
 
 ---
 
