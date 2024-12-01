@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a Python-based application that provides temperature and currency conversion functionalities. The application includes a console menu for user interaction, enabling the user to convert temperatures between Celsius, Fahrenheit, and Kelvin, as well as currencies between EUR and several other major currencies.
+This is a Python-based application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
 
 ---
 
@@ -41,28 +41,21 @@ This project implements **OWASP ASVS Requirement 5.1.4**:
 
 ---
 
-## **Currency Exchange API Integration**
+## **API Integration**
 
-This application fetches real-time currency conversion rates from the **ExchangeRate API**. The current exchange rates are automatically retrieved through the API and used for currency conversions. This ensures that the exchange rates are always up-to-date and correct.
+The application uses the **ExchangeRate-API** to get the latest currency conversion rates. This API provides real-time exchange rate data, which ensures that currency conversions are based on the most current exchange rates. The API supports various currencies, with conversion rates being updated regularly.
 
-### **API Details**
-- **API provider**: [ExchangeRate API](https://www.exchangerate-api.com/)
-- The API provides real-time conversion rates for multiple currencies, including EUR to USD, EUR to GBP, and others.
+- The API provides real-time exchange rates for multiple currencies against EUR, including USD, GBP, JPY, AUD, CAD, INR, and many more.
 
 ---
 
-## **Dependencies**
+## **Requirements**
 
-### Required Python Packages
+- Python 3.x
+- `requests` library (for fetching live data from the ExchangeRate-API)
+- `colorama` library (for text coloring in the console)
 
-To run this project, you need the following Python packages:
-- **requests**: For fetching live data from the ExchangeRate API.
-- **pytest**: For running tests.
-- **pytest-mock**: For mocking the API responses during testing.
-
-### Installing Dependencies
-
-You can install the required dependencies using `pip`:
+To install the required dependencies, use the following command:
 
 ```bash
-pip install requests pytest pytest-mock
+pip install -r requirements.txt
