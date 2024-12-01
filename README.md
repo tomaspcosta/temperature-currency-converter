@@ -1,27 +1,33 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a python based console application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
+This is a Python-based application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
 
 ---
 
 ## **Features**
 
 ### **1. Temperature Conversions**
-- Convert Celsius to Fahrenheit
-- Convert Celsius to Kelvin
-- Convert Fahrenheit to Celsius
-- Convert Fahrenheit to Kelvin
-- Convert Kelvin to Celsius
-- Convert Kelvin to Fahrenheit
+
+| **Conversion**            | **Description**               |
+|---------------------------|-------------------------------|
+| Celsius to Fahrenheit      | Convert Celsius to Fahrenheit  |
+| Celsius to Kelvin          | Convert Celsius to Kelvin      |
+| Fahrenheit to Celsius      | Convert Fahrenheit to Celsius  |
+| Fahrenheit to Kelvin       | Convert Fahrenheit to Kelvin   |
+| Kelvin to Celsius          | Convert Kelvin to Celsius      |
+| Kelvin to Fahrenheit       | Convert Kelvin to Fahrenheit   |
 
 ### **2. Currency Conversions**
-- Convert EUR to USD
-- Convert EUR to GBP
-- Convert EUR to JPY
-- Convert EUR to AUD
-- Convert EUR to CAD
-- Convert EUR to INR
+
+| **Conversion**            | **Description**               |
+|---------------------------|-------------------------------|
+| EUR to USD                | Convert EUR to USD            |
+| EUR to GBP                | Convert EUR to GBP            |
+| EUR to JPY                | Convert EUR to JPY            |
+| EUR to AUD                | Convert EUR to AUD            |
+| EUR to CAD                | Convert EUR to CAD            |
+| EUR to INR                | Convert EUR to INR            |
 
 ---
 
