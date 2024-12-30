@@ -81,22 +81,22 @@ class Converter:
 
     @staticmethod
     def validate_temperature_input(value):
-        """Validate that the temperature input is a valid numeric value."""
-        if not isinstance(value, (int, float)):  # Ensure the value is numeric
+        """Validate that the temperature input is a realistic numeric value."""
+        if not isinstance(value, (int, float)):
             raise ValueError("The temperature value must be a numeric value.")
-        if value < -273.15:  # Ensure the value is not below absolute zero
-            raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
+        if not (-100 <= value <= 100):  # Reasonable range for normal temperature values
+            raise ValueError("Temperature must be between -100°C and 100°C.")
         return value
-
 
     @staticmethod
     def validate_currency_input(value):
         """Validate that the currency input is a valid positive numeric value."""
         if not isinstance(value, (int, float)):
             raise ValueError("The amount must be a numeric value.")
-        if value <= 0:
-            raise ValueError("Amount must be a positive value.")
+        if not (0 < value <= 1e12):  # Ensure the value is within a realistic range
+            raise ValueError("Amount must be positive and less than 1 trillion.")
         return value
+
 
 # Menu Functions
 def temperature_menu():

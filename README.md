@@ -1,7 +1,7 @@
 # Temperature and Currency Conversion Application
 
 ## **Overview**
-This is a python based console application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
+This is a Python-based console application that provides temperature and currency conversion functionalities through a console menu. The application allows for converting temperatures between Celsius, Fahrenheit, and Kelvin, as well as converting currencies from EUR to several major currencies.
 
 ---
 
@@ -36,11 +36,13 @@ This project implements **OWASP ASVS Requirement 5.1.4**:
 ### **Input Validation**
 1. **Temperature Inputs**:
    - Ensures the input is a **numeric value** (rejecting special characters or strings).
-   - Validates that the temperature is not below **absolute zero** (-273.15°C).
+   - Validates that the temperature is not below **absolute zero** (-273.15°C), ensuring realistic and valid temperature values.
    
 2. **Currency Inputs**:
    - Ensures the input is a **numeric value**.
-   - Validates that the currency amount is **positive** and within a reasonable range.
+   - Validates that the currency amount is **positive** and within a reasonable range, preventing extreme or incorrect input values.
+
+These input validation measures ensure that data entered by users is both accurate and safe, complying with the OWASP ASVS guidelines for data security and integrity.
 
 ---
 
