@@ -84,8 +84,8 @@ class Converter:
         """Validate that the temperature input is a realistic numeric value."""
         if not isinstance(value, (int, float)):
             raise ValueError("The temperature value must be a numeric value.")
-        if not (-100 <= value <= 100):  # Reasonable range for normal temperature values
-            raise ValueError("Temperature must be between -100°C and 100°C.")
+        if not (value >= -273.15):  # Allow absolute zero (-273.15°C) and above
+            raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
         return value
 
     @staticmethod
@@ -97,6 +97,14 @@ class Converter:
             raise ValueError("Amount must be positive and less than 1 trillion.")
         return value
 
+def get_valid_menu_choice(prompt, valid_choices):
+    """Prompt the user for a valid menu choice."""
+    while True:
+        choice = input(prompt).strip()
+        if choice in valid_choices:
+            return choice
+        else:
+            print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 
 # Menu Functions
 def temperature_menu():
@@ -115,7 +123,7 @@ def temperature_menu():
         print(Fore.RED + "7. Back to Main Menu 🚪 " + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
-        temp_choice = input("Choose an option (1-7): ").strip()
+        temp_choice = get_valid_menu_choice("Choose an option (1-7): ", ["1", "2", "3", "4", "5", "6", "7"])
         if temp_choice == "7":
             break
 
@@ -141,8 +149,6 @@ def temperature_menu():
             elif temp_choice == "6":
                 result = converter.kelvin_to_fahrenheit(value)
                 print(f"{value} Kelvin is {result:.2f} Fahrenheit.")
-            else:
-                print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
         except ValueError as e:
             print(Fore.RED + str(e) + Style.RESET_ALL)
 
@@ -162,7 +168,7 @@ def currency_menu():
         print(Fore.RED + "7. Back to Main Menu 🚪" + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
-        currency_choice = input("Choose an option (1-7): ").strip()
+        currency_choice = get_valid_menu_choice("Choose an option (1-7): ", ["1", "2", "3", "4", "5", "6", "7"])
         if currency_choice == "7":
             break
 
@@ -188,8 +194,6 @@ def currency_menu():
             elif currency_choice == "6":
                 result = converter.eur_to_cad(value)
                 print(f"{value} EUR is {result:.2f} CAD")
-            else:
-                print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
         except ValueError as e:
             print(Fore.RED + str(e) + Style.RESET_ALL)
 
@@ -203,7 +207,7 @@ def main_menu():
         print(Fore.RED + "3. Exit 🚪 " + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
-        choice = input("Choose an option (1-3): ").strip()
+        choice = get_valid_menu_choice("Choose an option (1-3): ", ["1", "2", "3"])
 
         if choice == "1":
             temperature_menu()
@@ -211,8 +215,6 @@ def main_menu():
             currency_menu()
         elif choice == "3":
             break
-        else:
-            print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     main_menu()
