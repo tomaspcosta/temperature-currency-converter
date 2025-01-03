@@ -205,7 +205,7 @@ def main_menu():
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
         print(Fore.GREEN + "1. Temperature Conversions 🌡️ " + Style.RESET_ALL)
         print(Fore.GREEN + "2. Currency Conversions 💱 " + Style.RESET_ALL)
-        print(Fore.RED + "3. Exit 🚪 " + Style.RESET_ALL)
+        print(Fore.RED + "3. Exit " + Style.RESET_ALL)
         print(Fore.CYAN + "=" * 40 + Style.RESET_ALL)
 
         choice = get_valid_menu_choice("Choose an option (1-3): ", ["1", "2", "3"])
