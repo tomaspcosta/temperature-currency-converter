@@ -4,16 +4,14 @@ from converter import Converter
 # Test for validating that the temperature is a valid number and within a reasonable range (absolute zero).
 @pytest.mark.input_validation
 def test_validate_temperature_input_schema():
-    # Valid inputs (must be numeric and >= absolute zero)
-    assert Converter.validate_temperature_input(100) == 100  # Valid positive temperature
-    assert Converter.validate_temperature_input(-273.15) == -273.15  # Absolute zero is valid
-    
-    # Invalid inputs (must throw ValueError for non-numeric and below absolute zero)
-    with pytest.raises(ValueError):
-        Converter.validate_temperature_input("not_a_number")  # String input instead of numeric
+    assert Converter.validate_temperature_input(100) == 100
+    assert Converter.validate_temperature_input(-273.15) == -273.15
     
     with pytest.raises(ValueError):
-        Converter.validate_temperature_input(-500)  # Below absolute zero, invalid
+        Converter.validate_temperature_input("not_a_number")
+    
+    with pytest.raises(ValueError):
+        Converter.validate_temperature_input(-500) 
 
 # Test for validating that the currency input is numeric and positive
 @pytest.mark.currency_input_validation

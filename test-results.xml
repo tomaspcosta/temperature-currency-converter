@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+   <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="13" time="0.100" timestamp="2025-01-03T01:51:21.055509+00:00" hostname="tom">
+      <testcase classname="test_conversion" name="test_celsius_to_fahrenheit" time="0.000" />
+      <testcase classname="test_conversion" name="test_celsius_to_kelvin" time="0.000" />
+      <testcase classname="test_conversion" name="test_fahrenheit_to_celsius" time="0.000" />
+      <testcase classname="test_conversion" name="test_fahrenheit_to_kelvin" time="0.000" />
+      <testcase classname="test_conversion" name="test_kelvin_to_celsius" time="0.000" />
+      <testcase classname="test_conversion" name="test_kelvin_to_fahrenheit" time="0.000" />
+      <testcase classname="test_conversion" name="test_eur_to_usd" time="0.001" />
+      <testcase classname="test_conversion" name="test_eur_to_gbp" time="0.000" />
+      <testcase classname="test_conversion" name="test_eur_to_inr" time="0.000" />
+      <testcase classname="test_conversion" name="test_validate_temperature_input_schema" time="0.000" />
+      <testcase classname="test_conversion" name="test_validate_currency_input_schema" time="0.000" />
+      <testcase classname="test_input_validation" name="test_validate_temperature_input_schema" time="0.000" />
+      <testcase classname="test_input_validation" name="test_validate_currency_input_schema" time="0.000" />
+   </testsuite>
+</testsuites>
