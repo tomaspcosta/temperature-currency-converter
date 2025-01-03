@@ -60,7 +60,7 @@ def test_validate_temperature_input_schema():
     assert Converter.validate_temperature_input(-273.15) == -273.15  # Absolute zero is valid
 
     # Invalid inputs
-    with pytest.raises(ValueError, match=r"Temperature cannot be below absolute zero \(.*\)"):
+    with pytest.raises(ValueError, match=r"Temperature must be between -273.15°C and 1000°C."):
         Converter.validate_temperature_input(-500)
 
     with pytest.raises(ValueError, match="The temperature value must be a numeric value."):
