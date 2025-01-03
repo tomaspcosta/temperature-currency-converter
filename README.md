@@ -36,8 +36,8 @@ This project implements **OWASP ASVS Requirement 5.1.4**:
 ### **Input Validation**
 1. **Temperature Inputs**:
    - Ensures the input is a **numeric value** (rejecting special characters or strings).
-   - Validates that the temperature is not below **absolute zero** (-273.15°C), ensuring realistic and valid temperature values.
-   
+   - Validates that the temperature is not below **absolute zero** (-273.15°C) and not above **1000°C**, ensuring realistic and valid temperature values.
+
 2. **Currency Inputs**:
    - Ensures the input is a **numeric value**.
    - Validates that the currency amount is **positive** and within a reasonable range, preventing extreme or incorrect input values.
