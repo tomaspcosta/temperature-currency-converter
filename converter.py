@@ -84,9 +84,10 @@ class Converter:
         """Validate that the temperature input is a realistic numeric value."""
         if not isinstance(value, (int, float)):
             raise ValueError("The temperature value must be a numeric value.")
-        if not (value >= -273.15):  # Allow absolute zero (-273.15°C) and above
-            raise ValueError("Temperature cannot be below absolute zero (-273.15°C).")
+        if not (-273.15 <= value <= 1000):  # Allow values between absolute zero and 1000°C
+            raise ValueError("Temperature must be between -273.15°C and 1000°C.")
         return value
+
 
     @staticmethod
     def validate_currency_input(value):
