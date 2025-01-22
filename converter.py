@@ -1,15 +1,14 @@
 import requests
 from colorama import Fore, Style
+import creds
 
 class Converter:
-    # API URL to fetch latest currency rates (base currency -> EUR)
-    API_URL = "https://v6.exchangerate-api.com/v6/9cfb5e049b5a23f86f3e979a/latest/EUR"
 
     @staticmethod
     def fetch_exchange_rates():
         """Fetch the latest exchange rates from the API."""
         try:
-            response = requests.get(Converter.API_URL)
+            response = requests.get(creds.api_key)
             response.raise_for_status()  # raise an error for http issues
             data = response.json()
             if data["result"] == "success":
